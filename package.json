@@ -6,7 +6,8 @@
     "lint": "next lint",
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "disable:telemetry": "npx next telemetry disable"
   },
   "dependencies": {
     "@types/node": "18.15.11",
