@@ -5,7 +5,7 @@ const HomePageAllRoomTab = () => {
   const [activeTabIdx, setActiveTabIdx] = useState(0);
   const tabData = useMemo(() => {
     return mockTabData[activeTabIdx];
-  }, [mockTabData, activeTabIdx]);
+  }, [activeTabIdx]);
   return (
     <div>
       <div className="border-b border-gray-200 dark:border-gray-700">
