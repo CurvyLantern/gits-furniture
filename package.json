@@ -2,6 +2,7 @@
   "name": "furniture-theme",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://furniture.theme-forest.net/",
   "scripts": {
     "lint": "next lint",
     "dev": "node server.js",
