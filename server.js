@@ -4,7 +4,8 @@ const { parse } = require("url");
 const next = require("next");
 const isProduction = process.env.NODE_ENV === "production";
 const dev = isProduction;
-const hostname = isProduction ? "furniture.theme-forest.net" : "localhost";
+// const hostname = isProduction ? "furniture.theme-forest.net" : "localhost";
+const hostname = "127.0.0.1";
 const port = process.env.PORT || 4789;
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port });

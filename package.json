@@ -5,9 +5,9 @@
   "homepage": "http://furniture.theme-forest.net/",
   "scripts": {
     "lint": "next lint",
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "disable:telemetry": "npx next telemetry disable"
   },
   "dependencies": {

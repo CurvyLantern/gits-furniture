@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[964],{8757:function(n,u,i){(window.__NEXT_P=window.__NEXT_P||[]).push(["/admin",function(){return i(5555)}])},5555:function(n,u,i){"use strict";i.r(u);var t=i(1527);let _=()=>(0,t.jsx)("div",{children:"login logout"});u.default=_}},function(n){n.O(0,[774,888,179],function(){return n(n.s=8757)}),_N_E=n.O()}]);
