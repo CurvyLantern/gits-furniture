@@ -14,7 +14,10 @@ import { navList, categories } from "./mock";
 import { toKebabCase } from "@/utils/stringModifiers";
 import cardsImg from "@/public/assets/room/cards.webp";
 import Image from "next/image";
+import { linkMenuItems } from "@/utils/linkMenuItems";
 const BaseHeader = () => {
+  const id = useId();
+  const searchBarKey = `search-${id}`;
   return (
     <nav
       className="relative  mx-auto w-full px-4 sm:items-center sm:justify-between 
@@ -44,7 +47,7 @@ const BaseHeader = () => {
           </Link>
         </div>
         <div className="w-full hidden lg:block">
-          <SearchBar />
+          <SearchBar key={searchBarKey} />
         </div>
         <div className="ml-auto flex items-center justify-end  gap-x-5 min-w-max">
           <a
@@ -83,7 +86,7 @@ const BaseHeader = () => {
         </div>
       </div>
       <div className="w-full lg:hidden">
-        <SearchBar />
+        <SearchBar key={searchBarKey} />
       </div>
       <MegaMenu />
     </nav>
@@ -99,18 +102,18 @@ const MegaMenu = () => {
         className="flex flex-col gap-y-4 gap-x-0 mt-5 
         sm:flex-row sm:items-center justify-center  sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7"
       >
-        {categories.map((item, index) => {
-          const href = encodeURIComponent(toKebabCase(item.label));
+        {categories.map((category, index) => {
+          const href = linkMenuItems([category.label]);
           return (
             <div
-              key={item.label}
+              key={category.label}
               className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--trigger:hover] sm:py-4"
             >
               <Link
                 href={href}
                 className="flex items-center w-full text-gray-800 hover:text-gray-500 font-medium dark:text-gray-200 dark:hover:text-gray-400"
               >
-                {item.label}
+                {category.label}
                 <svg
                   className="ml-2 w-2.5 h-2.5 text-gray-600"
                   width="16"
@@ -136,7 +139,7 @@ const MegaMenu = () => {
               >
                 <div className="flex gap-5">
                   <div className="flex gap-5">
-                    {item.subCategories.map((subLabel, index, subArr) => {
+                    {category.subCategories.map((subLabel, index, subArr) => {
                       return (
                         <div key={subLabel} className="flex flex-col gap-3">
                           <p
@@ -147,8 +150,12 @@ const MegaMenu = () => {
                           </p>
                           <ul className="flex flex-col gap-3 px-5">
                             {subArr.map((productType, index) => {
-                              let productHref = `${href}/${subLabel}/${productType}`;
-                              productHref = encodeURIComponent(productHref);
+                              const productHref = linkMenuItems([
+                                category.label,
+                                subLabel,
+                                productType,
+                              ]);
+
                               return (
                                 <li key={productType} className="text-sm">
                                   <Link href={productHref}>{productType}</Link>
