@@ -7,5 +7,5 @@ export const linkMenuItems = (arr: string[]): string => {
   const linkWithoutModifier = arr
     .map((desination) => toKebabCase(desination))
     .join("/");
-  return `${modifier}/${linkWithoutModifier}`;
+  return `/${modifier}/${linkWithoutModifier}`;
 };
